@@ -23,8 +23,6 @@
             body {font-family:sans-serif;}
             body > section {
                 position:fixed;
-                /*                top:0;
-                                left:0;*/
                 width:100%;
                 height:100%;
                 background:transparent center no-repeat;
@@ -39,55 +37,6 @@
                 background:transparent center no-repeat;
                 background-size:cover;
             }
-            /*THIS IS THE YELLOW STATIC SECTION*/
-            /*            body > section:nth-child(1){
-                            color:green;
-                            background:yellow;
-                            top:0%;
-                        }
-                        THIS IS THE RED BOTTOM SECTION
-                        body > section:nth-child(2){
-                            color:white;
-                            background:red;
-                            top:100%;
-                        }
-                        THIS IS THE LEFT SECTION
-                        body > section:nth-child(3){
-                            color:white;
-                            background:blue;
-                            left:100%;
-                        }
-                        THIS IS THE RIGHT SECTION
-                        body > section:nth-child(4){
-                            color:white;
-                            background:green;
-                            left:-100%;
-                        }
-                        THIS IS THE TOP SECTION
-                        body > section:nth-child(5){
-                            color:white;
-                            background:grey;
-                            top:100%;
-                        }
-                        body > section:nth-child(6){
-                            height:3000px;
-            
-                            background:white center;
-                            top:0%;
-                            left:25%;
-                            background:none;
-                            width:102%;
-                            background-size:inherit;
-                            overflow:scroll;
-                            padding-left: 2%;
-                            left: -2%;
-            
-                        }*/
-            /*            body > section:nth-child(6) #scrollbarless h1 {
-                            text-align: center;
-                            font-size: 50px;
-                            font-weight:bold;
-                        }*/
             .leftbox {
                 position:absolute;
                 left:0;
@@ -104,123 +53,144 @@
             var skrollrScript = document.createElement('script');
             skrollrScript.setAttribute('type', 'text/javascript');
             skrollrScript.setAttribute('src', '../src/skrollr.js');
-            document.body.insertBefore(skrollrScript, document.body.firstChild);
-        </script>
+            document.body.insertBefore(skrollrScript, document.body.firstChild);</script>
 
         <script type="text/javascript">
 
+                    var sectionBackgroundColors = [
+                        'red',
+                        'blue',
+                        'green',
+                        '#ff00ff',
+                        'yellow',
+                    ];
+                    var sectionDefaultPositions = {
+                    frombottom: "top: 100%",
+                        fromright: "left: 100%",
+                        fromleft: "left: -100%",
+                    fromtop: "top: -100%",
+                    };
+                        var sectionDefaultTranslates = {
+                        frombottom: "Y(0%)", fromtop: "Y(0%)",
+                        fromright: "X(0%)",
+                    fromleft: "X(-100%)",
+                    };
+                        var sectionEndTranslates = {frombottom: "Y(-100%)",
+                        fromtop: "Y(100%)",
+                        fromleft: "X(100%)",
+                    fromright: "X(-100%)",
+                    };
+                        var sectionEndTranslatesArray = [sectionEndTranslates.frombottom,
+                    sectionEndTranslates.fromright,
+                    sectionEndTranslates.fromleft,
+                        sectionEndTranslates.fromtop
+                        ];
+                        var sectionDefaultTranslatesArray = [
+                    sectionDefaultTranslates.frombottom,
+                        sectionDefaultTranslates.fromright,
+                        sectionDefaultTranslates.fromleft,
+                        sectionDefaultTranslates.fromtop
+                        ];
+                    var sectionPositionsArray = [
+                        sectionDefaultPositions.frombottom,
+                        sectionDefaultPositions.fromright,
+                        sectionDefaultPositions.fromleft,
+                        sectionDefaultPositions.fromtop
+                    ];
+//            <!--SCALE TO 0.8 ONLY:-->
+//+        <!--transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1);-->
+//+        <!--SCALE TO 0.8 and MOVE 300 PX UPWARDS-->
+//+        <!--transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-300,0,1);-->
+//+        <!--SCALE TO FULL SIZE AND MOVE UPWARDS 900 px-->
+//+        <!--transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-900,0,1);-->
 
-            /*THE MAGIC STRING*/
+                    var transforms = {
+                        one: {
+                            scale_to08: "matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1)",
+                            scale_to_08_and_move_300pxUp: "transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-300,0,1)",
+                            scale_full_move_900_up: "transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-900,0,1)",
+                        },
+                        two: {
+                            scale_to08: "matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1)",
+                            scale_to_08_and_move_300pxUp: "transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-300,0,1)",
+                            scale_full_move_900_up: "transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-900,0,1)",
+                        },
+                        three: {
+                            scale_to08: "matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1)",
+                            scale_to_08_and_move_300pxUp: "transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-300,0,1)",
+                            scale_full_move_900_up: "transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-900,0,1)",
+                        }
+                    };
+                    var transformsArray = [
+                        [
+                            transforms.one.scale_to08,
+                            transforms.one.scale_to_08_and_move_300pxUp,
+                            transforms.one.scale_full_move_900_up, ],
+                        [
+                            transforms.two.scale_to08,
+                            transforms.two.scale_to_08_and_move_300pxUp,
+                            transforms.two.scale_full_move_900_up, ],
+                        [
+                            transforms.three.scale_to08,
+                            transforms.three.scale_to_08_and_move_300pxUp,
+                            transforms.three.scale_full_move_900_up, ],
+                    ];
+                    var windowHeight = $(window).height();
+                    var windowWidth = $(window).width();
+                    var body = document.getElementsByTagName('body')[0];
+                    var scrollIncrement = 50;
+                    var numberOfSections = 2;
+                    function test1() {
 
-            var sectionBackgroundColors = [
-                'red',
-                'blue',
-                'green',
-                '#ff00ff',
-                'yellow',
-            ];
+                        var staticSection = document.createElement('section');
+                        $(staticSection)
+                                .addClass('pbc')
+                                .attr("data-0", "transform: none")
+                                .attr("data-" + (scrollIncrement - 1) + "p", "transform: none")
+                                .addClass('skrollable')
+   .html('<h1 align="center">BASE Section ' + '0' + '</h1><p>3</p><h3>3</h3>')
+                    .attr("style", "background-size: cover;background: yellow;" +  " center no-repeat; top: 0%;")
+                    .attr("id", "section_0")
+                    .appendTo(body);
 
-            var sectionDefaultPositions = {
-//                static: "top: 0%", // THIS IS THE STATIC ONE (0)
-                frombottom: "top: 100%",
-                fromright: "left: 100%",
-                fromleft: "left: -100%",
-                fromtop: "top: -100%",
-            }
 
-            var sectionDefaultTranslates = {
-//                static: ":none",
-                frombottom: "Y(0%)",
-                fromtop: "Y(0%)",
-                fromright: "X(0%)",
-                fromleft: "X(-100%)",
-            }
 
-            var sectionEndTranslates = {
-//                static: ":none",
-                frombottom: "Y(-100%)",
-                fromtop: "Y(100%)",
-                fromleft: "X(100%)", //THIS IS FROM RIGHT
-                fromright: "X(-100%)", //THIS IS FROM BOTTOM
+                    for (i = 0; i < numberOfSections ; i++) {
 
-            }
-
-            var sectionEndTranslatesArray = [
-                sectionEndTranslates.frombottom,
-                sectionEndTranslates.fromright,
-                sectionEndTranslates.fromleft,
-                sectionEndTranslates.fromtop
-            ]
-
-            var sectionDefaultTranslatesArray = [
-                sectionDefaultTranslates.frombottom,
-                sectionDefaultTranslates.fromright,
-                sectionDefaultTranslates.fromleft,
-                sectionDefaultTranslates.fromtop
-            ]
-
-            var sectionPositionsArray = [
-                sectionDefaultPositions.frombottom,
-                sectionDefaultPositions.fromright,
-                sectionDefaultPositions.fromleft,
-                sectionDefaultPositions.fromtop
-            ];
-
-            var windowHeight = $(window).height();
-            var windowWidth = $(window).width();
-            var body = document.getElementsByTagName('body')[0];
-
-            var scrollIncrement = 50;
-            var numberOfSections = 5;
-
-            function test1() {
-
-                var staticSection = document.createElement('section');
-                $(staticSection)
-                        .addClass('pbc')
-                        .attr("data-0", "transform: none")
-                        .attr("data-" + (scrollIncrement - 1) + "p", "transform: none")
-                        .addClass('skrollable')
-                        .html('<h1 align="center">BASE Section ' + '0' + '</h1><p>3</p><h3>3</h3>')
-                        .attr("style", "background-size: cover;background: yellow;" +  " center no-repeat; top: 0%;")
-                        .attr("id", "section_0")
-                        .appendTo(body);
-
-                for (i = 0; i < numberOfSections; i++) {
-
-                    var remainder = (i % 4);
-//                    console.log(remainder);
-                    var colorString = sectionBackgroundColors[remainder];
-                    var increment = scrollIncrement * i;
-                    var postIncrement = increment + scrollIncrement - 1;
-                    var newSection = document.createElement('section');
-                    $(newSection)
-                            .attr("data-" + increment + "p", "transform: translate" + sectionDefaultTranslatesArray[remainder])
-                            .attr("data-" + postIncrement + "p", "transform: translate" + sectionEndTranslatesArray[remainder])
-                            .addClass('skrollable')
-                            .html('<h1>Custom Section ' + (i) + '<h1><p>3</p><h3>3</h3>')
-                            .attr("style", "background-size: cover;background:" + colorString + " center no-repeat;" + sectionPositionsArray[remainder])
-                            .attr("id", "section_" + (i + 1))
-                            .appendTo(body);
-                }
-
-                skrollr.init({
-                    constants: {
-                        //fill the box for a "duration" of 150% of the viewport (pause for 150%)
-                        //adjust for shorter/longer pause
-                        box: '150p'
+                        var remainder = (i % 4);
+                        console.log(remainder);
+                        console.log("FROM");
+                        console.log(transformsArray[0][remainder]);
+                        console.log("TO");
+                        console.log(transformsArray[0][(remainder+1)]);
+                        var colorString = sectionBackgroundColors[remainder];
+                        var increment = scrollIncrement * i + 50;
+                        var postIncrement = increment + scrollIncrement - 1;
+                        var newSection = document.createElement('section');
+                        $(newSection)
+                                .attr("data-" + increment + "p", "transform: matrix3d(" + transformsArray[0][(remainder)]+")")
+                                .attr("data-" + postIncrement + "p", "transform: matrix3d(" + transformsArray[0][(remainder+1)]+")")
+                                .addClass('skrollable')
+                                .html('<h1>Custom Section ' + (i) + '<h1><p>3</p><h3>3</h3>')
+                                .attr("style", "background-size: cover;background:" + colorString + " center no-repeat;" + sectionPositionsArray[remainder])
+                                .attr("id", "section_" + (i + 1))
+                                .appendTo(body);
                     }
-                });
-            }
+
+                    skrollr.init({
+                        constants: {
+                            box: '150p',
+                        }
+                    });
+}
 
 
 
 
-            function reset() {
-                console.log("Scrolled");
-                window.scrollTo(0, 0);
-            }
+function reset() {
+    console.log("Scrolled");
+    window.scrollTo(0, 0);
+}
         </script>
     </body>
-
 </html>
