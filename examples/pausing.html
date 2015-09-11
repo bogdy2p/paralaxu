@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <title>Pausing</title>
+
+
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <style type="text/css">
+            * {
+                margin:0;
+                padding:0;
+            }
+
+            html, body {
+                width:100%;
+                height:100%;
+                /*                overflow: -moz-scrollbars-vertical;
+                                overflow-x: auto;
+                                overflow-y: hidden;*/
+            }
+
+            body {font-family:sans-serif;}
+            body > section {
+                position:fixed;
+                /*                top:0;
+                                left:0;*/
+                width:100%;
+                height:100%;
+                background:transparent center no-repeat;
+                background-size:cover;
+            }
+            /*THIS IS THE YELLOW STATIC SECTION*/
+            body > section:nth-child(1){
+                color:green;
+                background:yellow;
+                top:0%;
+            }
+            /*THIS IS THE RED BOTTOM SECTION*/
+            body > section:nth-child(2){
+                color:white;
+                background:red;
+                top:100%;
+            }
+            /*THIS IS THE LEFT SECTION*/
+            body > section:nth-child(3){
+                color:white;
+                background:blue;
+                left:100%;
+            }
+            /*THIS IS THE RIGHT SECTION*/
+            body > section:nth-child(4){
+                color:white;
+                background:green;
+                left:-100%;
+            }
+            /*THIS IS THE TOP SECTION*/
+            body > section:nth-child(5){
+                color:white;
+                background:grey;
+                top:100%;
+            }
+            body > section:nth-child(6){
+                /*height:3000px;*/
+
+                background:white center;
+                top:0%;
+                /*left:25%;*/
+                /*background:none;*/
+                width:102%;
+                background-size:inherit;
+                overflow:scroll;
+                padding-left: 2%;
+                left: -2%;
+
+            }
+            body > section:nth-child(6) #scrollbarless h1 {
+                text-align: center;
+                font-size: 50px;
+                font-weight:bold;
+            }
+            .leftbox {
+                position:absolute;
+                left:0;
+                height:100%;
+                background:#00FF00;
+            }
+            p {margin:1em 0;}
+        </style>
+    </head>
+
+    <body onload="reset();">
+
+        <section data-0="transform:translateY(0%);" data-0p="transform:translateY(0%);">
+            <p align="center">1 YELLOW MAIN SECTION OF THE SITE </p>
+        </section>
+
+        <section data-5p="transform:translateY(0%);" data-50p="transform:translateY(-100%);">
+            <p align="center">2 RED BOTTOM SECTION OF THE SITE </p>
+        </section>
+
+        <section data-55p="transform:translateX(0%);" data-105p="transform:translateX(-100%);">
+            <p align="center">SECTION FIVE</p>
+        </section>
+
+        <section data-155p="transform:translateX(0%);" data-210p="transform:translateX(100%);">
+            <p align="center">THIRD SECTION OF THE SITE </p>
+        </section>
+
+        <section data-215p="transform:translateY(100%);" data-270p="transform:translateY(-100%);">
+            <p align="center">FOURTH SECTION OF THE SITE </p>
+        </section>
+
+        <section data-295p="transform:translateY(100%);" data-305p="transform:translateY(0%);">
+
+            <div id="scrollbarless"> 
+                <h1>CHAPTER 1</h1>
+                <br />
+                <br />
+                <p>paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1paragraph 1</p>
+                <br />
+                <h1>CHAPTER 2</h1>
+                <br />
+                <br />
+                <p>paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2paragraph 2</p>
+                <br />
+                <h1>CHAPTER 3</h1>
+                <br />
+                <br />
+                <p>paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3paragraph 3</p>
+                <br />
+                <h1>CHAPTER 4</h1>
+                <br />
+                <br />
+                <p>paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4paragraph 4</p>
+                <br />
+                <h1>CHAPTER 5</h1>
+                <br />
+                <br />
+                <p>paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5vvparagraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5vvparagraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5vvparagraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5paragraph 5vv</p>
+                <br />
+                <h1>CHAPTER 6</h1>
+                <br />
+                <br />
+                <p>paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6paragraph 6</p>
+                <br />
+                <h1>CHAPTER 7</h1>
+                <br />
+                <br />
+                <p>paragraph 7</p>
+            </div>
+        </section>
+
+        <script type="text/javascript" src="../dist/skrollr.min.js"></script>
+        <script type="text/javascript">
+
+//        $(document).ready(function () {
+//            $(document).bind('mousewheel', function (e) {
+//                if (e.originalEvent.wheelDelta / 120 > 0) {
+//                    $(this).text('scrolling up !');
+//                }
+//                else {
+//                    $(this).text('scrolling down !');
+//                }
+//            });
+//        });
+
+//        $('body,html').scroll();
+//        $("#scrollbarless").scroll();
+//        $("#scrollbarless").animate({scrollTop: 1000}, 1000);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//        var myimage = document.getElementsByTagName('body')[0];
+//        if (myimage.addEventListener) {
+//            // IE9, Chrome, Safari, Opera
+//            myimage.addEventListener("mousewheel", MouseWheelHandler, false);
+//            // Firefox
+//            myimage.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+//        }
+//// IE 6/7/8
+//        else
+//            myimage.attachEvent("onmousewheel", MouseWheelHandler);
+//
+//
+//        function MouseWheelHandler(e) {
+//
+//
+////            console.log(window.scrollY);
+////            console.log(e.deltaY);
+//            scrollBarless = document.getElementById('scrollbarless');
+////            scrollBarless.scrollIntoView({block: "end"});
+////            
+//            if (e.deltaY > 0) {
+////                console.log("You scrolled down");
+//                window.scrollTo(0, window.scrollY + 50);
+////                console.log(scrollBarless.scrollTop);
+////                console.log(scrollBarless.scrollWidth);
+//            } else {
+////                console.log("You scrolled UP");
+//                window.scrollTo(0, window.scrollY - 50);
+//                //Reset the last div to scroll position ZERO.
+//                sections = document.getElementsByTagName('section');
+////                console.log(sections);
+//                sectionsLength = sections.length;
+//                lastSection = document.getElementsByTagName('section')[sectionsLength - 1];
+////                lastSection.scrollTo(0,0);
+//
+////                with JQUERY
+//
+//
+////            $("#scrollbarless").animate({ scrollTop: 10 }, "fast");
+//                $("#scrollbarless").scroll();
+//                $("#scrollbarless").animate({scrollTop: 1000}, 1000);
+//
+////                scrollBarless.scrollIntoView(true);
+////   
+////                document.body.scrollIntoView();
+////                console.log(scrollBarless.scrollHeight);
+////                scrollBarless.scrollTop = 0;
+////                console.log(scrollBarless.scrollTop);
+////                console.log(scrollBarless.)
+////               
+//            }
+//
+////            console.log("MOUSE WHEEL");
+//        }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//        document.getElementsByTagName('body').onscroll = function () {
+//            console.log("scrolling");
+//        };
+        </script>
+        <script type="text/javascript">
+            function reset() {
+                window.scrollTo(0, 0);
+            }
+            skrollr.init({
+                constants: {
+                    //fill the box for a "duration" of 150% of the viewport (pause for 150%)
+                    //adjust for shorter/longer pause
+                    box: '150p'
+                }
+            });
+        </script>
+    </body>
+
+</html>
