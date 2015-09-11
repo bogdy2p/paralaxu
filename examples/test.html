@@ -14,12 +14,13 @@
                 margin:0;
                 padding:0;
             }
-
             html, body {
                 width:100%;
                 height:100%;
+                /*                overflow: -moz-scrollbars-vertical;
+                                overflow-x: auto;
+                                overflow-y: hidden;*/
             }
-
             body {font-family:sans-serif;}
             body > section {
                 position:fixed;
@@ -62,7 +63,6 @@
             }
             body > section:nth-child(6){
                 /*height:3000px;*/
-
                 background:white center;
                 top:0%;
                 /*left:25%;*/
@@ -72,7 +72,6 @@
                 overflow:scroll;
                 padding-left: 2%;
                 left: -2%;
-
             }
             body > section:nth-child(6) #scrollbarless h1 {
                 text-align: center;
@@ -94,10 +93,28 @@
         <section data-0="transform:translateY(0%);" data-0p="transform:translateY(0%);">
             <p align="center">1 YELLOW MAIN SECTION OF THE SITE </p>
         </section>
-
-        <section data-5p="transform:translateY(0%);" data-50p="transform:translateY(-100%);">
+        <!--rotate, scale, move (translate), and skew-->
+        
+        
+        <!--SCALE TO 0.8 ONLY:-->
+        <!--transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1);-->
+        <!--SCALE TO 0.8 and MOVE 300 PX UPWARDS-->
+        <!--transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-300,0,1);-->
+        <!--SCALE TO FULL SIZE AND MOVE UPWARDS 900 px-->
+        <!--transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-900,0,1);-->
+        <section 
+            data-5p=" transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,0,0,1);"
+            data-20p="transform: matrix3d(0.8,0,0.00,0,0.00,0.8,0.00,0,0,0,1,0,0,-965,0,1);"
+            data-40p="transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,-965,0,1);"
+            
+            
+            >
             <p align="center">2 RED BOTTOM SECTION OF THE SITE </p>
-        </section>
+        </section><!--
+        -->
+<!--        <section data-5p="transform:translate3d(0px,0%,0px);" data-50p="transform: translate3d(10px,-100%,-150px);">
+            <p align="center">2 RED BOTTOM SECTION OF THE SITE </p>
+        </section>-->
 
         <section data-55p="transform:translateX(0%);" data-105p="transform:translateX(-100%);">
             <p align="center">SECTION FIVE</p>
@@ -152,7 +169,80 @@
         </section>
 
         <script type="text/javascript" src="../dist/skrollr.min.js"></script>
-  
+        <script type="text/javascript">
+//        $(document).ready(function () {
+//            $(document).bind('mousewheel', function (e) {
+//                if (e.originalEvent.wheelDelta / 120 > 0) {
+//                    $(this).text('scrolling up !');
+//                }
+//                else {
+//                    $(this).text('scrolling down !');
+//                }
+//            });
+//        });
+//        $('body,html').scroll();
+//        $("#scrollbarless").scroll();
+//        $("#scrollbarless").animate({scrollTop: 1000}, 1000);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//        var myimage = document.getElementsByTagName('body')[0];
+//        if (myimage.addEventListener) {
+//            // IE9, Chrome, Safari, Opera
+//            myimage.addEventListener("mousewheel", MouseWheelHandler, false);
+//            // Firefox
+//            myimage.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+//        }
+//// IE 6/7/8
+//        else
+//            myimage.attachEvent("onmousewheel", MouseWheelHandler);
+//
+//
+//        function MouseWheelHandler(e) {
+//
+//
+////            console.log(window.scrollY);
+////            console.log(e.deltaY);
+//            scrollBarless = document.getElementById('scrollbarless');
+////            scrollBarless.scrollIntoView({block: "end"});
+////            
+//            if (e.deltaY > 0) {
+////                console.log("You scrolled down");
+//                window.scrollTo(0, window.scrollY + 50);
+////                console.log(scrollBarless.scrollTop);
+////                console.log(scrollBarless.scrollWidth);
+//            } else {
+////                console.log("You scrolled UP");
+//                window.scrollTo(0, window.scrollY - 50);
+//                //Reset the last div to scroll position ZERO.
+//                sections = document.getElementsByTagName('section');
+////                console.log(sections);
+//                sectionsLength = sections.length;
+//                lastSection = document.getElementsByTagName('section')[sectionsLength - 1];
+////                lastSection.scrollTo(0,0);
+//
+////                with JQUERY
+//
+//
+////            $("#scrollbarless").animate({ scrollTop: 10 }, "fast");
+//                $("#scrollbarless").scroll();
+//                $("#scrollbarless").animate({scrollTop: 1000}, 1000);
+//
+////                scrollBarless.scrollIntoView(true);
+////   
+////                document.body.scrollIntoView();
+////                console.log(scrollBarless.scrollHeight);
+////                scrollBarless.scrollTop = 0;
+////                console.log(scrollBarless.scrollTop);
+////                console.log(scrollBarless.)
+////               
+//            }
+//
+////            console.log("MOUSE WHEEL");
+//        }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//        document.getElementsByTagName('body').onscroll = function () {
+//            console.log("scrolling");
+//        };
+        </script>
         <script type="text/javascript">
             function reset() {
                 window.scrollTo(0, 0);
